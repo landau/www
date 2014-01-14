@@ -1,0 +1,19 @@
+#twitter li:hover time {
+  color: #f0f0f0;
+}
+#twitter li:hover p {
+  color: #f9f9f9;
+}
+#twitter time {
+  font-size: 1em;
+  color: #909090;
+  display: block;
+  padding-bottom: 0.5em;
+}
+#twitter p {
+  font-size: 1.6em;
+}
+#twitter a {
+  font-size: 0.8em;
+  font-family: monospace;
+}

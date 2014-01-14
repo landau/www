@@ -15,6 +15,7 @@ function createGETTest(url) {
   return createTestObj('GET', url);
 }
 
+// fake route to ensure an error route is setup
 app.get('/error', function(req, res, next) {
   next(new Error('test'));
 });

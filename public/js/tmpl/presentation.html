@@ -1,0 +1,12 @@
+<div>
+    <a href="<%= url %>" target="_blank"><%= name %></a>
+</div>
+<time datetime="<%= date.toISOString() %>">
+    <i class="twitter"></i>
+    <%= window.util.date.format( date, 'M j, Y' ) %>
+</time>
+<ul>
+<% links.forEach( function ( link ) { %>
+<span><a href="<%= link %>" target="_blank"><%= link %></a></span>
+<% }); %>
+</ul>

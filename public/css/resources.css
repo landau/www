@@ -1,0 +1,24 @@
+#resources li:hover span {
+  color: #e0e0e0;
+}
+#resources span {
+  display: inline-block;
+  color: #909090;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#resources span:after {
+  content: ' - ';
+}
+#resources span:last-child:after {
+  content: '';
+}
+#resources a {
+  font-size: 1.6em;
+}
+@media only screen and (max-device-width: 480px) {
+  #resources span {
+    display: none;
+  }
+}

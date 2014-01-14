@@ -1,0 +1,11 @@
+/* 
+@font-face
+  font-family: 'NYT'
+  font-weight: normal
+  src: url("../assets/fonts/NYTCheLig.ttf") format("truetype")
+*/
+@font-face {
+  font-family: 'Social';
+  font-weight: normal;
+  src: url("../assets/fonts/socialicons.ttf") format("truetype");
+}

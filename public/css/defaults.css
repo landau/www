@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+body {
+  background-color: whiteSmoke;
+  font-family: 'Open Sans', Helevetica, Arial, sans-serif;
+  color: #202020;
+}
+ul {
+  list-style: none;
+}
+a {
+  color: #369;
+  text-decoration: none;
+}

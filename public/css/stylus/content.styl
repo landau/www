@@ -1,0 +1,44 @@
+$transSpeed = .10s
+$transDelay = 0s
+#content
+  background-color: rgba(255, 255, 255, .75)
+  box-shadow: 0 .1em 1em rgba(175, 175, 175, .75)
+  margin-left: $sidebarwidth
+
+  *
+    vendor( transition, all $transSpeed ease-in $transDelay )
+
+  li
+    cursor: default
+    padding: 1em 2em
+    border-top: .1em solid #f0f0f0
+
+
+    &:first-child
+      border-top: none
+
+    &:last-child
+      border-bottom: none
+
+    &:nth-child(even)
+      border-top: .1em solid #e9e9e9
+      background-color: #f9f9f9
+      &:hover
+        border-top-color: #6f6f6f
+
+    &:hover
+      background: #369
+      border-top: .1em solid #606060
+      a
+        color: #f9f9f9
+
+      
+  a
+    &:hover
+      text-decoration: underline
+
+@media only screen and (max-device-width: 480px) 
+  #content
+    background-color: rgba(255, 255, 255, .75)
+    box-shadow: 0 .1em 1em rgba(175, 175, 175, .75)
+    margin-left: 0
