@@ -146,6 +146,10 @@ a:hover,a:focus {
   margin: 0;
 }
 
+.post-share {
+  margin-top: 10px;
+}
+
 .date {
   letter-spacing: 2px;
   font-size: 90%;
