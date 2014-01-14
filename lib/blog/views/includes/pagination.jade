@@ -1,0 +1,13 @@
+- var pageCount = getPageCount();
+- if (pageCount > 1)
+  div.pure-menu.pure-menu-horizontal.pure-menu-open.paginator
+    ul
+      - var i = 0;
+      - while (i++ < pageCount)
+      
+        if page == i
+          li
+            a.pure-button-active(href=pageURL(i)) #{i}
+        else
+          li
+            a(href=pageURL(i)) #{i}

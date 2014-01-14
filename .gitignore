@@ -1,0 +1,5 @@
+node_modules
+bower_modules
+backend/json/tweets.json
+npm-debug.log
+.DS_Store

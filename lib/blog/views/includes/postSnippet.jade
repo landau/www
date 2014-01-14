@@ -1,0 +1,15 @@
+//- post preview
+section.post
+  header.post-header
+    .post-title
+      a(href=post.url) 
+        = post.title
+
+    .post-meta 
+      span.date #{post.date.getMonth()+1}.#{post.date.getDate()}.#{post.date.getFullYear()}
+      - each tag in post.tags
+        a.post-category(href=tagUrl(tag)) #{tag}
+
+  .post-description
+      p
+        != post.preview
