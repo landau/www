@@ -6,9 +6,10 @@ var gulp = require('gulp');
 var mocha = require('gulp-mocha');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
-//var clean = require('gulp-clean');
+var csso = require('gulp-csso');
+var clean = require('gulp-clean');
 //var ugly = require('gulp-uglify');
-//var rename = require('gulp-rename');
+var rename = require('gulp-rename');
 
 gulp.task('pretest', function () {
   return gulp.src(['lib/**/*.js', 'index.js', 'test/**/*.js'])
@@ -34,6 +35,21 @@ gulp.task('test', function () {
   });
 });
 
+gulp.task('clean', function() {
+  gulp.src('lib/blog/public/css/blog.min.css')
+    .pipe(clean({ force: true }));
+});
+
+gulp.task('cssmin', ['clean'], function() {
+  gulp.src([
+    'lib/blog/public/css/bower_components/pure/pure.css',
+    'lib/blog/public/css/blog.css'
+  ])
+    .pipe(csso())
+    .pipe(rename('blog.min.css'))
+    .pipe(gulp.dest('lib/blog/public/css'));
+});
+
 /*
 gulp.task('ugly', function () {
   return gulp.src('src/is.js')
@@ -46,6 +62,9 @@ gulp.task('ugly', function () {
 });
 */
 
+gulp.task('build', function() {
+  gulp.run('cssmin');
+});
 
 gulp.task('default', function () {
   gulp.watch([
