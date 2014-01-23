@@ -3,7 +3,6 @@
 process.env.NODE_ENV = 'test';
 
 var gulp = require('gulp');
-var mocha = require('gulp-mocha');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
 var csso = require('gulp-csso');
@@ -16,23 +15,6 @@ gulp.task('pretest', function () {
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter(require('jshint-stylish')))
     .pipe(jscs());
-});
-
-gulp.task('mocha', function () {
-  var m = mocha({
-    reporter : 'spec',
-    timeout  : 5e4
-  });
-
-  return gulp.src(['test/**/*.js'])
-    .pipe(m);
-});
-
-gulp.task('test', function () {
-  gulp.run('pretest', 'mocha');
-  gulp.on('error', function() {
-    console.log(arguments);
-  });
 });
 
 gulp.task('clean', function() {

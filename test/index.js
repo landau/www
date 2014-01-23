@@ -66,3 +66,23 @@ Object.keys(tests).forEach(function(code) {
     });
   });
 });
+
+describe('domain handling', function() {
+  before(function(done) {
+    app.get('/die', function() {
+      setTimeout(function() {
+        throw new Error('derp');
+      }, 50);
+    });
+
+    this.server = http.createServer(app);
+    this.req = request(this.server).get('/die');
+
+    // Poet is a little slow to load sometimes, introduce a delay
+    setTimeout(done, 35);
+  });
+
+  it('should respond with a 500', function(done) {
+    this.req.expect(500, done);
+  });
+});
