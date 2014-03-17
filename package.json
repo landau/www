@@ -42,7 +42,6 @@
     "jade": "~1.1.0",
     "poet": "~1.0.0-rc3",
     "express": "~3.4.7",
-    "is-predicate": "~0.1.1",
-    "life.react": "0.0.1"
+    "is-predicate": "~0.1.1"
   }
 }
