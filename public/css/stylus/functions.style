@@ -1,7 +1,0 @@
-vendor(prop, val)
-  -webkit-{prop}: val
-  -moz-{prop}: val
-  -o-{prop}: val
-  -ms-{prop}: val
-  {prop}: val
-

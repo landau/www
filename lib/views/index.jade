@@ -1,0 +1,50 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf8')
+    title Trevor Landau
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    link(href='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css', rel='stylesheet')
+    link(href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css', rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600,700', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+
+  body
+    .wrapper
+      .box
+        .row
+          #sidebar.column.col-sm-3
+            a.logo(href='/') Trevor Landau
+            //-ul.nav
+            //-  li.active
+            //-    a(href='#featured') Featured
+            //-  li
+            //-    a(href='#stories') Stories
+
+            ul.nav.navbar-nav.social
+              li
+                a(href='https://twitter.com/trevor_landau' target='_blank')
+                  i.fa.fa-twitter
+              li
+                a(href='https://github.com/landau' target='_blank')
+                  i.fa.fa-github
+
+          #main.column.col-sm-9
+            .padding
+              .col-sm-12
+                .page-header.text-muted.divider
+                  | Github Repos
+
+              each r in repos
+                .row
+                  .col-sm-9
+                    h3: a(href=r.html_url, target='_blank')= r.name
+                    h4: small.text-muted= r.description
+
+                  .col-sm-3
+                    dl.side-list
+                      dt Last Updated
+                      dd= r.updated_at
+                      dt Stargazers
+                      dd= r.stargazers_count
+
