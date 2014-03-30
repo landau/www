@@ -9,7 +9,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node .",
-    "pretest": "#jshint --reporter node_modules/jshint-stylish/stylish.js index.js test lib",
+    "pretest": "jshint --reporter node_modules/jshint-stylish/stylish.js index.js test lib",
     "test": "mocha --recursive --reporter spec ./test",
     "deploy": "npm test && npm build && jitsu deploy",
     "build": "./bin/build.sh"
