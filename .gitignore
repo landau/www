@@ -1,5 +1,10 @@
-*node_modules*
-*bower_components*
-backend/json/tweets.json
-npm-debug.log
-.DS_Store
+/target
+/lib
+/classes
+/checkouts
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+/.lein-*
+/.nrepl-port
