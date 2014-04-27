@@ -1,11 +1,13 @@
 (ns www.models.ghub
   (:require [tentacles.repos :as ghub]
-            [www.utils :refer [in?]]))
+            [www.utils :refer [in? iso-to-date]]
+            [clj-time.format :as format-time]
+            [clojure.core.cache :refer [->TTLCache ttl-cache-factory] :as cache]))
 
 ; start constants
-(def user-name "landau")
+(def ^:const user-name "landau")
 
-(def filtered-repos
+(def ^:const filtered-repos
   ["hubot-tapin"
    "learningfromlibraries"
    "requiredemo"
@@ -15,18 +17,10 @@
    "2014.cascadiajs.com"
    "landau.github.io"])
 
-(def picked-repo-prop
-  ["id"
-   "name"
-   "full_name"
-   "html_url"
-   "description"
-   "stargazers_count"
-   "watchers_count"
-   "created_at"
-   "updated_at"
-   "pushed_at"])
-; end constants
+; start repo-cache
+(def ^:const ttl (* 1000 60 15)) ; cache 15 min
+(def repo-cache (atom (ttl-cache-factory {} :ttl ttl)))
+; start repo-cache
 
 ; start filter-forks
 (defn filter-forks
@@ -42,16 +36,22 @@
   [repos]
   (filter #((complement in?) filtered-repos (:name %))
           repos))
-
 ; end filter repos
 
-; start repos
-(defn repos
+; start sort-by
+;
+
+; start get-repos
+(defn get-repos
   "Retrieves landau's repos from ghub"
   []
   (-> user-name ghub/user-repos
       filter-forks
       filter-repos))
-; end repos
+; end get-repos
 
-(map :name (repos))
+; start repos
+(defn repos []
+  "Retreives landau's repos from ghub and caches it"
+  (swap! repo-cache #(cache/miss % :repos (get-repos))))
+; end repos

@@ -6,6 +6,7 @@
                  [tentacles "0.2.6"]
                  [lib-noir "0.8.2"]
                  [hiccup "1.0.5"]
+                 [clj-time "0.7.0"]
                  [ring-server "0.3.1"]]
   :plugins [[lein-ring "0.8.10"]]
   :ring {:handler www.handler/app

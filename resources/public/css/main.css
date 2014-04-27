@@ -1,0 +1,160 @@
+.phtml,
+body {
+  height: 100%;
+  font-family: 'Open Sans',arial,sans-serif;
+}
+
+a {  
+  color: #369;
+}
+
+.wrapper,
+.row {
+  height: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.wrapper:before,
+.wrapper:after,
+.column:before,
+.column:after {
+  content: "";
+  display: table;
+}
+
+.wrapper:after,
+.column:after {  
+  clear: both;
+}
+
+.column {
+  height: 100%;
+  overflow: auto;
+  *zoom: 1;
+}
+
+.column .padding {  
+  padding: 05px 5px;
+}
+
+.box {
+  bottom: 0; /* increase for footer use */
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  /*
+  background-image: url('/assets/example/bg_suburb.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  */
+  background-color: #369;
+}
+
+.divider {  margin-top: 32px; }
+
+#main {  background-color: #fefefe; }
+
+#main .img-circle {
+  margin-top: 18px;
+  height: 70px;
+  width: 70px;
+}
+
+#sidebar {
+  padding: 20px;
+}
+
+#sidebar,
+#sidebar a {
+  color: #ffffff;
+  background-color: transparent;
+  text-shadow: 1px 0 1px #888888;
+}
+
+#sidebar a.logo {
+  display: block;
+  padding: 3px;
+  font-size: 26px;
+  font-weight: 400;
+  text-decoration: none;
+  text-shadow: 0 0 0;
+}
+
+#sidebar .social {
+  font-size: 24px;
+}
+
+#sidebar-footer {
+  position: absolute;
+  bottom: 5px;
+}
+
+#footer {  margin-bottom: 20px; }
+
+/* center and adjust the sidebar contents on smaller devices */
+@media (max-width: 768px) { 
+  #sidebar,
+  #sidebar a.logo {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 26px;
+  }
+
+  #sidebar a.logo {
+    font-size: 50px;
+  }
+}
+
+/* bootstrap overrides */
+h1,
+h2,
+h3 {
+  font-weight: 800;
+  font-family: 'Open Sans',arial,sans-serif;
+}
+
+h3 a {
+  color: #359;
+}
+
+.jumbotron {  background-color: transparent; }
+
+.label-default {  background-color: #dddddd; }
+
+.page-header {
+  margin-top: 55px;
+  padding-top: 9px;
+  border-top: 1px solid #eeeeee;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.col-sm-9.full {  width: 100%; }
+
+small.text-muted {  font-family: courier,courier-new,monospace; }
+
+.side-list {
+  background: #f7f8f8;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.side-list dt {
+  float: left;
+  margin-right: 5px;
+}
+
+.side-list dt:after {
+  content: ':';
+}
+
+.side-list dd {
+  text-align: right;
+}
+
+.side-list dd:after {
+  clear: left;
+}

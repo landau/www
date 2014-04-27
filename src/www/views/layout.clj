@@ -2,6 +2,7 @@
   (:require
     [hiccup.page :refer [html5 include-css include-js]]
     [hiccup.element :refer [link-to]]))
+
 ; start repo
 (defn repo
   "github repo layout"
@@ -38,7 +39,7 @@
 ; end sidebar
 
 ; start main
-(defn main [{:keys [repos]}]
+(defn main [& [repos]]
   [:div#main.column.col-sm-9
    [:div.padding
     [:div.col-sm-12
