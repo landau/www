@@ -5,11 +5,6 @@
             [noir.util.middleware :as noir-middleware]
             [www.routes.home :refer [home-routes]]))
 
-(defroutes app-routes
-  (GET "/" [] "Hello World")
-  (route/resources "/")
-  (route/not-found "Not Found"))
-
 (defn init []
   )
 

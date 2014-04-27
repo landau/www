@@ -43,8 +43,8 @@
   [:div#main.column.col-sm-9
    [:div.padding
     [:div.col-sm-12
-     [:div.page-header.text-muted.divider "Github Repos"]
-     (map repo repos)]]])
+     [:div.page-header.text-muted.divider "Github Repos"]]
+    (map repo repos)]])
 ; end main
 
 ; start base

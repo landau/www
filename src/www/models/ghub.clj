@@ -5,7 +5,7 @@
             [clojure.core.cache :refer [->TTLCache ttl-cache-factory] :as cache]))
 
 ; start constants
-(def ^:const user-name "landau")
+(def ^:const my-user "landau")
 
 (def ^:const filtered-repos
   ["hubot-tapin"
@@ -22,36 +22,30 @@
 (def repo-cache (atom (ttl-cache-factory {} :ttl ttl)))
 ; start repo-cache
 
-; start filter-forks
-(defn filter-forks
-  "Filters out forked repos"
-  [repos]
-  (filter #(false? (% :fork))
-          repos))
-; end filter-forks
-
 ; start filter repos
 (defn filter-repos
   "filters out repos I don't want to display"
   [repos]
-  (filter #((complement in?) filtered-repos (:name %))
+  (filter #(and
+             (false? (:fork %)) ; not a fork
+             ((complement in?) filtered-repos (:name %))) ; not one of these repos
           repos))
 ; end filter repos
-
-; start sort-by
-;
 
 ; start get-repos
 (defn get-repos
   "Retrieves landau's repos from ghub"
-  []
-  (-> user-name ghub/user-repos
-      filter-forks
-      filter-repos))
+  [user]
+  (-> user ghub/user-repos filter-repos))
 ; end get-repos
 
 ; start repos
-(defn repos []
-  "Retreives landau's repos from ghub and caches it"
-  (swap! repo-cache #(cache/miss % :repos (get-repos))))
+(defn get-cached-repos
+  "Retreives a user-names repos from ghub and caches it"
+  [user]
+  (if (cache/has? @repo-cache :repos)
+    (:repos (cache/hit @repo-cache :repos))
+    (let [repos (get-repos user)]
+     (swap! repo-cache #(cache/miss % :repos repos))
+      (:repos repos))))
 ; end repos
