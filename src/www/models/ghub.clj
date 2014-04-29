@@ -1,7 +1,6 @@
 (ns www.models.ghub
   (:require [tentacles.repos :as ghub]
-            [www.utils :refer [in? iso-to-date]]
-            [clj-time.format :as format-time]
+            [www.utils :refer [in?]]
             [clojure.core.cache :refer [->TTLCache ttl-cache-factory] :as cache]))
 
 ; start constants

@@ -19,7 +19,7 @@
 ; end format-iso
 
 ; start iso-to-date
-(defn iso-to-date
+(defn iso->date
   "formats an iso date to MM/dd/yyyy"
   [iso]
   (format-iso "MM/dd/yyyy" iso))
