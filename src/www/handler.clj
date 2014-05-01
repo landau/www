@@ -3,7 +3,6 @@
             [compojure.route :as route]
             [compojure.core :refer [defroutes routes GET]]
             [noir.util.middleware :as noir-middleware]
-            [ring.middleware.file :as file-middleware]
             [www.routes.home :refer [home-routes]]))
 
 (defn init []
