@@ -3,6 +3,7 @@
             [compojure.route :as route]
             [compojure.core :refer [defroutes routes GET]]
             [noir.util.middleware :as noir-middleware]
+            [ring.middleware.file :as file-middleware]
             [www.routes.home :refer [home-routes]]))
 
 (defn init []
@@ -13,6 +14,7 @@
 
 (defroutes app-routes
   (route/resources "/")
+  (route/resources "/life" :root "life")
   (route/not-found "Not Found"))
 
 (def app
