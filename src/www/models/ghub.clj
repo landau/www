@@ -8,6 +8,7 @@
 
 (def ^:const filtered-repos
   ["hubot-tapin"
+   "www"
    "learningfromlibraries"
    "requiredemo"
    "dotfiles"

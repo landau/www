@@ -1,4 +1,4 @@
-(defproject www "0.1.0"
+(defproject www "0.1.1"
   :description "My websit"
   :url "https://bitbucket.org/trevor_landau/www"
   :dependencies [[org.clojure/clojure "1.6.0"]
