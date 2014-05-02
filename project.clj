@@ -1,4 +1,4 @@
-(defproject www "0.1.0-SNAPSHOT"
+(defproject www "0.1.0"
   :description "My websit"
   :url "https://bitbucket.org/trevor_landau/www"
   :dependencies [[org.clojure/clojure "1.6.0"]
@@ -13,12 +13,12 @@
          :init www.handler/init
          :destroy www.handler/destroy}
   :profiles
-  {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
-                        [org.clojure/tools.namespace "0.2.4"]
+  {:dev {:dependencies [[org.clojure/tools.namespace "0.2.4"]
                         [ring-mock "0.1.5"]
                         [ring/ring-devel "1.2.1"]]
          :source-paths ["dev"]}
    :production {:ring
                 {:open-browser? false
                  :stacktraces? false
-                 :auto-reload? false}}})
+                 :auto-reload? false}}}
+  :aot :all)

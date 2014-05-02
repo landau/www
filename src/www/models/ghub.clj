@@ -45,6 +45,6 @@
   (if (cache/has? @repo-cache :repos)
     (:repos (cache/hit @repo-cache :repos))
     (let [repos (get-repos user)]
-     (swap! repo-cache #(cache/miss % :repos repos))
-      (:repos repos))))
+      (swap! repo-cache #(cache/miss % :repos repos))
+      repos)))
 ; end repos
